@@ -23,8 +23,8 @@ namespace NetworkConnection
                     }
                 }
             };
-
-            MainPage = new NavigationPage(content);
+            MainPage = new MainPage();
+            //MainPage = new NavigationPage(content);
         }
 
         protected override void OnStart()

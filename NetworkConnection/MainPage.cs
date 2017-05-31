@@ -27,21 +27,14 @@ namespace NetworkConnection
 
             Content = speak;
 
+            
 
-
-
-
-
-
-
-
-
-            Content = new StackLayout
-            {
-                Children = {
-                    new Label { Text = "Hello ContentPage" }
-                }
-            };
+            //Content = new StackLayout
+            //{
+            //    Children = {speak,
+            //        new Label { Text = "Hello ContentPage" }
+            //    }
+            //};
         }
     }
 }
