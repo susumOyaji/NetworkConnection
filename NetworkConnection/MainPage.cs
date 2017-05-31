@@ -9,12 +9,12 @@ namespace NetworkConnection
         public MainPage()
         {
             var networkConnection = DependencyService.Get<INetworkConnection > ();
-            networkConnection.CheckNetworkConnection();
+            string ip = networkConnection.CheckNetworkConnection();
             var networkStatus = networkConnection.IsConnected ? "Connected" : "Not Connected";
 
             var speak = new Button
             {
-                Text = "Click to check Network connectivity",
+                Text = "Click to check"+ " Network connectivity IpAddress!",
                 VerticalOptions = LayoutOptions.CenterAndExpand,
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
             };
@@ -22,7 +22,7 @@ namespace NetworkConnection
 
             speak.Clicked += (sender, e) =>
             {
-                speak.Text = DependencyService.Get<INetworkConnection > ().IsConnected ? "You are Connected" : "You are Not Connected";
+                speak.Text = ip;//DependencyService.Get<INetworkConnection > ().IsConnected ? "You are Connected" : "You are Not Connected";
             };
 
             Content = speak;

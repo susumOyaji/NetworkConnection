@@ -1,10 +1,11 @@
-﻿﻿using System;
+﻿
+using System;
 using Xamarin.Forms;
 using UIKit;
 using NetworkConnection.iOS;
 
 
-[assembly: Xamarin.Forms.Dependency(typeof(NetworkConnection_iOS))]
+[assembly: Dependency(typeof(NetworkConnection_iOS))]
 namespace NetworkConnection.iOS
 {
     public class NetworkConnection_iOS : INetworkConnection
@@ -39,6 +40,7 @@ namespace NetworkConnection.iOS
             }
 
             private event EventHandler ReachabilityChanged;
+
             private void OnChange(NetworkReachabilityFlags flags)
             {
                 var h = ReachabilityChanged;
