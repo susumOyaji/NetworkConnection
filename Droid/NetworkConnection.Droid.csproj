@@ -118,6 +118,14 @@
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="NetworkConnection_Droid.cs" />
+    <Compile Include="HostWaitReceiv.cs" />
+    <Compile Include="HostTCPWaitReceiv.cs" />
+    <Compile Include="SendGuestIPAdress.cs" />
+    <Compile Include="IPAdressDetecto.cs" />
+    <Compile Include="ReturnIpAdress.cs" />
+    <Compile Include="DeviceAndIpAdressRecevi.cs" />
+    <Compile Include="HostConnect.cs" />
+    <Compile Include="NetworkConnectionAll.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
