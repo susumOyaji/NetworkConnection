@@ -121,11 +121,10 @@
     <Compile Include="HostWaitReceiv.cs" />
     <Compile Include="HostTCPWaitReceiv.cs" />
     <Compile Include="SendGuestIPAdress.cs" />
-    <Compile Include="IPAdressDetecto.cs" />
+    <Compile Include="IPAdressDetect.cs" />
     <Compile Include="ReturnIpAdress.cs" />
     <Compile Include="DeviceAndIpAdressRecevi.cs" />
     <Compile Include="HostConnect.cs" />
-    <Compile Include="NetworkConnectionAll.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

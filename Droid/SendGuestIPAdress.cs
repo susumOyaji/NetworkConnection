@@ -36,7 +36,7 @@ namespace NetworkConnection.Droid
             string myIpAddress = getIpAddress();
             waiting = true;
 
-            Thread thread = new Thread() {
+            //Thread thread = new Thread() {
             //@Override
             void run()
             {
@@ -72,7 +72,8 @@ namespace NetworkConnection.Droid
                     }
                 }
             }
-        }.start();
+            // }.start();
+        }
     }
 }
 

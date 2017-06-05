@@ -39,47 +39,52 @@ namespace NetworkConnection.Droid
         {
             waiting = true;
 
-           
 
-            new Thread()
+
+            //new Thread()
+            //{
+            void run()
             {
-                public override void run()
-                {
-                    string address = null;
-                    try
-                    {
-                        //waiting = trueの間、ブロードキャストを受け取る
-                        while (waiting)
-                        {
-                            //受信用ソケット
-                            DatagramSocket receiveUdpSocket = new DatagramSocket(udpPort);
-                            byte[] buf = new byte[256];
-                            DatagramPacket packet = new DatagramPacket(buf, buf.Length);
+                string address = null;
 
-                            //ゲスト端末からのブロードキャストを受け取る  
-                            //受け取るまでは待ち状態になる   
-                            receiveUdpSocket.Receive(packet);
-                            //受信バイト数取得 
-                            int length = packet.getLength();
-                            //受け取ったパケットを文字列にする 
-                            address = new String(buf, 0, length);
-                            //↓③で使用  
-                            returnIpAdress(address);
-                            receiveUdpSocket.close();
-                        }
-                    }   
-                    catch (SocketException e)
+                try
+                {
+                    //waiting = trueの間、ブロードキャストを受け取る
+                    while (waiting)
                     {
-                        e.PrintStackTrace();
-                    }
-                    catch (IOException e)
-                    {
-                        e.PrintStackTrace();
+                        //受信用ソケット
+                        DatagramSocket receiveUdpSocket = new DatagramSocket(udpPort);
+                        byte[] buf = new byte[256];
+                        DatagramPacket packet = new DatagramPacket(buf, buf.Length);
+
+                        //ゲスト端末からのブロードキャストを受け取る  
+                        //受け取るまでは待ち状態になる   
+                        receiveUdpSocket.Receive(packet);
+
+                        //受信バイト数取得 
+                        int length = packet.Length;//getlength()
+
+                        //受け取ったパケットを文字列にする 
+                        address = new String(buf, 0,length);
+
+                        //↓③で使用  
+                        returnIpAdress(address);
+                        receiveUdpSocket.close();
                     }
                 }
-             }.Start();
-       }
-   }
- 
+                catch (SocketException e)
+                {
+                    e.PrintStackTrace();
+                }
+                catch (IOException e)
+                {
+                    e.PrintStackTrace();
+                }
+            }
+        }    // }.Start();
+    }
 }
+
+ 
+
 

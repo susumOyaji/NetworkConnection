@@ -39,7 +39,7 @@ namespace NetworkConnection.Droid
         //ブロードキャスト発信者(ゲスト)にIPアドレスと端末名を返す   
         void returnIpAdress(string address)
         {
-            new Thread() {
+            //new Thread() {
             void run()
             {
                 try
@@ -81,7 +81,7 @@ namespace NetworkConnection.Droid
                         e.PrintStackTrace();
                  }
              }
-          }.start();
+          //}.start();
        }
     }        
 

@@ -13,6 +13,7 @@ using Android.Widget;
 using Java.Net;
 using Java.IO;
 using System.Threading;
+using System.Security;
 
 
 
@@ -22,7 +23,7 @@ using System.Threading;
 
 namespace NetworkConnection.Droid
 {
-    
+
     //HostTCPHostWaitReceiv_Droid.cs
     public class HostTCPHostWaitReceiv
     {
@@ -33,29 +34,30 @@ namespace NetworkConnection.Droid
         //ゲストからの接続を待つ処理  
         void Connect()
         {
-            new Thread()
+            //new Thread()
+            //{
+            //@Override
+            void run()
             {
-                //@Override
-                void run()
+                try
                 {
-                    try
-                    {
-                        //ServerSocketを生成する
-                        serverSocket = new ServerSocket(tcpPort);
-                        //ゲストからの接続が完了するまで待って処理を進める 
-                        connectedSocket = serverSocket.Accept();
-                        //この後はconnectedSocketに対してInputStreamやOutputStreamを用いて入出力を行ったりするが、ここでは割愛      
-                    }
-                    catch (SocketException e)
-                    {
-                        e.PrintStackTrace();
-                    }
-                    catch (IOException e)
-                    {
-                        e.PrintStackTrace();
-                    }
+                    //ServerSocketを生成する
+                    serverSocket = new ServerSocket(tcpPort);
+                    //ゲストからの接続が完了するまで待って処理を進める 
+                    connectedSocket = serverSocket.Accept();
+                    //この後はconnectedSocketに対してInputStreamやOutputStreamを用いて入出力を行ったりするが、ここでは割愛      
                 }
-            }.start();
+                catch (SocketException e)
+                {
+                    e.PrintStackTrace();
+                }
+                catch (IOException e)
+                {
+                    e.PrintStackTrace();
+                }
+            }
+            //}.start();
         }
+    }
 }
 

@@ -19,14 +19,14 @@ using System.Threading;
 
 namespace NetworkConnection.Droid
 {
-    public class IPAdressDetecto
+    public class IPAdressDetect
     {
         WifiManager wifi;
 
         /*コンストラクタ*/
-        public int Sample_WifiConnection(Context context)
+        public IPAdressDetect/*Sample_WifiConnection*/(Context context)
         {
-            wifi = (WifiManager)context.getSystemService(Context.WIFI_SERVICE);
+            wifi = (WifiManager)context.GetSystemService(Context.WifiService);
         }
 
         //IPアドレスの取得  
@@ -72,13 +72,13 @@ namespace NetworkConnection.Droid
             bool waiting = true;
             //Thread a = new Thread() { run() { int a = 0; } }.Start();
 
-            new Thread()
+            //new Thread()
+            //{
+            // @Override
+            void run()
             {
-       // @Override
-                void run()
+                while (waiting)
                 {
-                    while (waiting)
-                    {
                     try
                     {
                         if (serverSocket == null)
@@ -106,7 +106,8 @@ namespace NetworkConnection.Droid
                     }
                 }
             }
-        }.start();
+            // }.start();
+        }
     }
 }
 

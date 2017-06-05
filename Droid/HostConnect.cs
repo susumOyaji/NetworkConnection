@@ -20,7 +20,7 @@ using System.Threading;
 ゲスト端末でホストのIPアドレスを入手することが出来たので、あとはTCP通信を試みるだけです。
 */
 namespace NetworkConnection.Droid
-{   
+{
     //IPアドレスが判明したホストに対して接続を行う 
     public class HostConnect
     {
@@ -28,10 +28,9 @@ namespace NetworkConnection.Droid
         {
             bool waiting = false;
 
-            new Thread()
+            // new Thread(){
+            void run()
             {
-                override void run()
-                {
                 try
                 {
                     if (socket == null)
@@ -53,10 +52,11 @@ namespace NetworkConnection.Droid
                     e.PrintStackTrace();
                 }
             }
-        }.start();
-        }       
+            //}.start();
+        }
     }
 }
+
 
 
 
